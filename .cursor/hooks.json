@@ -1,0 +1,10 @@
+{
+  "hooks": {
+    "afterFileEdit": [
+      {
+        "command": "bunx ultracite fix --hook"
+      }
+    ]
+  },
+  "version": 1
+}
