@@ -39,6 +39,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  /* Feedback colours: only for green/orange/red results and odds, never as an accent. */
+  --fb-green: oklch(0.5 0.15 150);
+  --fb-green-soft: oklch(0.94 0.06 150);
+  --fb-orange: oklch(0.58 0.16 55);
+  --fb-orange-soft: oklch(0.95 0.06 75);
+  --fb-red: oklch(0.52 0.2 27);
+  --fb-red-soft: oklch(0.94 0.04 20);
 }
 
 .dark {
@@ -73,9 +80,21 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --fb-green: oklch(0.76 0.17 150);
+  --fb-green-soft: oklch(0.3 0.07 150);
+  --fb-orange: oklch(0.79 0.15 65);
+  --fb-orange-soft: oklch(0.32 0.07 60);
+  --fb-red: oklch(0.72 0.17 22);
+  --fb-red-soft: oklch(0.3 0.08 22);
 }
 
 @theme inline {
+  --color-fb-green: var(--fb-green);
+  --color-fb-green-soft: var(--fb-green-soft);
+  --color-fb-orange: var(--fb-orange);
+  --color-fb-orange-soft: var(--fb-orange-soft);
+  --color-fb-red: var(--fb-red);
+  --color-fb-red-soft: var(--fb-red-soft);
   --font-sans: "Inter Variable", sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -122,7 +141,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply font-sans bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
   html {
     @apply font-sans;

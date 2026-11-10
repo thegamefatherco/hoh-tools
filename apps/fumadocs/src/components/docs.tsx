@@ -1,4 +1,7 @@
-import { type SerializedPageTree, useFumadocsLoader } from "fumadocs-core/source/client";
+import {
+  type SerializedPageTree,
+  useFumadocsLoader,
+} from "fumadocs-core/source/client";
 import type { TOCItemType } from "fumadocs-core/toc";
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import {
@@ -42,9 +45,12 @@ export function Docs({
         <DocsPage toc={toc}>
           <DocsTitle>{title}</DocsTitle>
           <DocsDescription>{description}</DocsDescription>
-          <div className="flex flex-row gap-2 items-center border-b -mt-4 pb-6">
+          <div className="-mt-4 flex flex-row items-center gap-2 border-b pb-6">
             <MarkdownCopyButton markdownUrl={markdownUrl} />
-            <ViewOptionsPopover markdownUrl={markdownUrl} githubUrl={githubUrl} />
+            <ViewOptionsPopover
+              markdownUrl={markdownUrl}
+              githubUrl={githubUrl}
+            />
           </div>
           {children}
         </DocsPage>

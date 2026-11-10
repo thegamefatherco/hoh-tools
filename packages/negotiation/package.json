@@ -1,0 +1,27 @@
+{
+  "name": "@hoh-tools/negotiation",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./data": "./src/data.ts",
+    "./deductions": "./src/deductions.ts",
+    "./engine": "./src/engine.ts",
+    "./format": "./src/format.ts",
+    "./openings": "./src/openings.ts",
+    "./solver": "./src/solver.ts"
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "test": "bun test",
+    "build:data": "bun scripts/build-data.ts",
+    "build:icons": "bun scripts/build-icons.ts",
+    "build:openings": "bun scripts/precompute-openings.ts"
+  },
+  "devDependencies": {
+    "@hoh-tools/config": "workspace:*",
+    "@types/bun": "latest",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3"
+  }
+}

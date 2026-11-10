@@ -126,7 +126,8 @@ function UserProfile({ userId }: { userId: string }) {
   });
 
   if (data === undefined) {
-    if (error) return <ErrorState message={error.message} onRetry={() => refetch()} />;
+    if (error)
+      return <ErrorState message={error.message} onRetry={() => refetch()} />;
     if (fetchStatus === "paused") return <OfflineState />;
     return <Loading />;
   }
@@ -134,9 +135,16 @@ function UserProfile({ userId }: { userId: string }) {
   return (
     <>
       {error && (
-        <InlineError message="Could not refresh. Showing saved data." onRetry={() => refetch()} />
+        <InlineError
+          message="Could not refresh. Showing saved data."
+          onRetry={() => refetch()}
+        />
       )}
-      {data === null ? <EmptyState message="User not found" /> : <Profile user={data} />}
+      {data === null ? (
+        <EmptyState message="User not found" />
+      ) : (
+        <Profile user={data} />
+      )}
     </>
   );
 }
@@ -165,7 +173,11 @@ function CreateUserForm() {
 
   // Form keeps its draft on error and disables Submit while isLoading.
   return (
-    <Form onSubmit={handleSubmit} isLoading={mutation.isPending} error={mutation.error?.message} />
+    <Form
+      onSubmit={handleSubmit}
+      isLoading={mutation.isPending}
+      error={mutation.error?.message}
+    />
   );
 }
 ```
@@ -181,7 +193,7 @@ class ApiError extends Error {
   constructor(
     message: string,
     public status: number,
-    public code?: string,
+    public code?: string
   ) {
     super(message);
     this.name = "ApiError";
@@ -194,7 +206,11 @@ const fetchWithErrorHandling = async (url: string, options?: RequestInit) => {
 
     if (!response.ok) {
       const error = await response.json().catch(() => ({}));
-      throw new ApiError(error.message || "Request failed", response.status, error.code);
+      throw new ApiError(
+        error.message || "Request failed",
+        response.status,
+        error.code
+      );
     }
 
     return response.json();
@@ -211,7 +227,11 @@ const fetchWithErrorHandling = async (url: string, options?: RequestInit) => {
 **Retry logic**:
 
 ```tsx
-const fetchWithRetry = async (url: string, options?: RequestInit, retries = 3) => {
+const fetchWithRetry = async (
+  url: string,
+  options?: RequestInit,
+  retries = 3
+) => {
   for (let i = 0; i < retries; i++) {
     try {
       return await fetchWithErrorHandling(url, options);
@@ -446,27 +466,17 @@ await SecureStore.setItemAsync("token", token);
 
 ## Example Invocations
 
-User: "How do I make API calls in React Native?"
--> Use fetch, wrap with error handling
+User: "How do I make API calls in React Native?" -> Use fetch, wrap with error handling
 
-User: "Should I use React Query or SWR?"
--> React Query for complex apps, SWR for simpler needs
+User: "Should I use React Query or SWR?" -> React Query for complex apps, SWR for simpler needs
 
-User: "My app needs to work offline"
--> Use NetInfo for status, React Query persistence for caching
+User: "My app needs to work offline" -> Use NetInfo for status, React Query persistence for caching
 
-User: "How do I handle authentication tokens?"
--> Store in expo-secure-store, implement refresh flow
+User: "How do I handle authentication tokens?" -> Store in expo-secure-store, implement refresh flow
 
-User: "API calls are slow"
--> Check caching strategy, use React Query staleTime
-User: "How do I configure different API URLs for dev and prod?"
--> Use `EXPO_PUBLIC_` env vars with .env.development and .env.production files
-User: "Where should I put my API key?"
--> Client-safe keys: `EXPO_PUBLIC_` in .env. Secret keys: non-prefixed env vars in API routes only
+User: "API calls are slow" -> Check caching strategy, use React Query staleTime User: "How do I configure different API URLs for dev and prod?" -> Use `EXPO_PUBLIC_` env vars with .env.development and .env.production files User: "Where should I put my API key?" -> Client-safe keys: `EXPO_PUBLIC_` in .env. Secret keys: non-prefixed env vars in API routes only
 
-User: "How do I load data for a page in Expo Router?"
--> See references/expo-router-loaders.md for route-level loaders (web, SDK 55+). For native, use React Query or fetch.
+User: "How do I load data for a page in Expo Router?" -> See references/expo-router-loaders.md for route-level loaders (web, SDK 55+). For native, use React Query or fetch.
 
 ## Submitting Feedback
 
@@ -476,5 +486,4 @@ If you encounter errors, misleading or outdated information in this skill, repor
 npx --yes @expo/agent-cli@latest feedback --category skills --subject "expo-data-fetching" "<actionable feedback>"
 ```
 
-Only submit when you have something specific and actionable to report. Include as much relevant context as possible.
-If an agent repeatedly fails at an Expo task or the user has to step in, submit a brief report of the task, expected result, and what went wrong using `--category evals` and the relevant Expo package or command as `--subject`.
+Only submit when you have something specific and actionable to report. Include as much relevant context as possible. If an agent repeatedly fails at an Expo task or the user has to step in, submit a brief report of the task, expected result, and what went wrong using `--category evals` and the relevant Expo package or command as `--subject`.

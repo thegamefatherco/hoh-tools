@@ -7,9 +7,11 @@
     "serve": "vite preview",
     "dev": "vite dev",
     "check-types": "vite build && tsc --noEmit",
-    "env:generate": "varlock codegen"
+    "env:generate": "varlock codegen",
+    "test": "bun test"
   },
   "dependencies": {
+    "@hoh-tools/negotiation": "workspace:*",
     "@hoh-tools/ui": "workspace:*",
     "@tailwindcss/vite": "^4.3.3",
     "@tanstack/react-query": "^5.104.2",
@@ -30,6 +32,7 @@
     "@tanstack/react-router-devtools": "^1.167.2",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/react": "^16.3.3",
+    "@types/bun": "latest",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
