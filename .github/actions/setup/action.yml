@@ -1,0 +1,28 @@
+name: Setup
+description: Install Node, Bun (version from package.json) and workspace dependencies.
+
+runs:
+  using: composite
+  steps:
+    # Astro, Expo and Wrangler run on Node; Astro needs >= 22.23.4.
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 24
+
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v2
+      with:
+        bun-version-file: package.json
+
+    - name: Cache Bun install cache
+      uses: actions/cache@v4
+      with:
+        path: ~/.bun/install/cache
+        key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+        restore-keys: |
+          bun-${{ runner.os }}-
+
+    - name: Install dependencies
+      shell: bash
+      run: bun install --frozen-lockfile

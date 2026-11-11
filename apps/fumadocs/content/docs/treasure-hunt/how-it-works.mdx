@@ -1,0 +1,83 @@
+---
+title: How it works
+description: The engine, solver, data pipeline and packages behind the negotiation helper.
+---
+
+This page is for developers. It covers the model of the mini-game, how the solver picks a move, and where the code lives.
+
+## Model
+
+A negotiation has `k` slots (always 5) and a pool of `n` items (up to 10, lettered A–J). The **secret** is what each slot wants: one of `n^k` combinations. The prior is uniform: every slot independently wants any item, so every combination still consistent with the history is equally likely. That makes every chance the helper shows an exact ratio of counts.
+
+Feedback for a guess against a secret, per slot:
+
+- **G**: `guess[i] == secret[i]`.
+- **O**: not green, and some slot that is *not green this turn* wants `guess[i]`.
+- **R**: otherwise.
+
+The engine (`packages/negotiation/src/engine.ts`) stores all secrets as digits in one `Uint8Array` and encodes feedback as a base-3 number, slot `i` with weight `3^i` and G=0, O=1, R=2 (`feedbackCode`, `codeFromColors`, `colorsFromCode`). After each turn, `filterCandidates` keeps the secrets that give the same code, and `lockedAfter` locks the slots that showed green.
+
+## Choosing a move
+
+`solve()` in `packages/negotiation/src/solver.ts` reports which method it used:
+
+| Method | When | What it does |
+| --- | --- | --- |
+| `table` | First turn | Looks up the best opening in a precomputed table (`src/generated/openings.json`). |
+| `search` | 2 turns left | Exhaustive search for the guess that splits the candidates into the most distinct feedback codes. |
+| `search-approx` | More than 2 turns left after a history | Same 2-turn search, used as a lower bound. Cannot happen with 3 turns. |
+| `final` | Last turn | Places the candidate with the highest expected number of greens. |
+
+### Openings
+
+By symmetry the concrete items of a first move do not matter, only how often each repeats: an integer partition of `k` such as `2+1+1+1`. `scripts/precompute-openings.ts` computes, for every slot count and pool size, the exact clear chance of each pattern with 2 turns (`p2`) and 3 turns (`p3`) of best play afterwards. `pickOpening` ranks by `p3` then `p2` when 3 or more turns are left, and the other way round with 2.
+
+### Two-turn search
+
+With two turns left a candidate set is won with certainty only for feedback codes that leave a single candidate, so the number of candidates won equals the number of distinct codes the guess produces. `bestTwoTurnGuess` maximises that count. To keep the search small, `forEachGuess` keeps locked slots and enumerates untested items, which are interchangeable, in one canonical order only. Ties prefer a guess that is itself a candidate (it can clear right away), then enumeration order.
+
+The search has a time budget (15 s by default). When it runs out, the result has `timedOut: true` and the UI says the move is the best found, not proven optimal.
+
+### Analysis
+
+Besides the move, `solve()` returns the candidate count, locked slots, the per-slot marginals `marg[slot][item]`, a bitmask of items every candidate still needs, untested items, and a small sample of candidates. `deduce()` in `src/deductions.ts` turns that into UI-agnostic deduction lines.
+
+## Running off the UI thread
+
+The solver runs in a Web Worker. `createSolverClient` (`packages/negotiation-ui/src/solver-client.ts`) tags each request with an increasing generation number and delivers only the latest response. A new request while one is running replaces the worker, so a slow old search never blocks or overwrites a newer one.
+
+- The web app passes `createModuleWorker` (a Vite module worker).
+- The extension loads the worker from its own files, `entrypoints/solver-worker.ts`, built as an unlisted script. Chrome kills the extension renderer when an extension page starts a worker from another origin, such as the dev server, so the worker must be same-origin.
+
+Both call `serveSolverRequests` from `solver-host.ts` inside the worker.
+
+## Packages
+
+| Package | Exports | Purpose |
+| --- | --- | --- |
+| `@hoh-tools/negotiation` | `./engine`, `./solver`, `./openings`, `./deductions`, `./data`, `./format` | Pure TypeScript engine, solver, game data and formatting. No UI. |
+| `@hoh-tools/negotiation-ui` | `./negotiation-solver`, `./solver-client`, `./solver-host`, `./module-worker` | The React UI (`NegotiationSolver`) and the worker plumbing, shared by the web app and the extension. |
+
+The UI state lives in a reducer in `session.ts` (setup, history, current placement and colours, latest solver request).
+
+## Game data and assets
+
+Generated files are committed; rebuild them when the game data changes. Run these from `packages/negotiation`:
+
+| Script | Input | Output |
+| --- | --- | --- |
+| `bun run build:data` | Game exports in `input/exports` (negotiation games, gifts, resources, Treasure Hunt difficulties) | `src/generated/gamedata.json` |
+| `bun run build:icons` | PNGs in `input/icons` and `input/feedback-icons` | WebP icons in `packages/negotiation-ui/src/assets` |
+| `bun run build:openings` | — | `src/generated/openings.json` (a minute or two; `--check` compares instead of writing) |
+
+`build:icons` fails and lists the names if an icon needed by any reachable negotiation is missing.
+
+## Tests
+
+```bash
+bun run --cwd packages/negotiation test
+```
+
+```bash
+bun run --cwd packages/negotiation-ui test
+```

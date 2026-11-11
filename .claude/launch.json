@@ -4,14 +4,37 @@
     {
       "name": "web",
       "runtimeExecutable": "bun",
-      "runtimeArgs": ["run", "dev:web"],
+      "runtimeArgs": [
+        "run",
+        "dev:web"
+      ],
       "port": 3001
     },
     {
       "name": "extension-build",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "5556", "--directory", "apps/extension/.output/chrome-mv3"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "5556",
+        "--directory",
+        "apps/extension/.output/chrome-mv3"
+      ],
       "port": 5556
+    },
+    {
+      "name": "docs",
+      "runtimeExecutable": "fnm",
+      "runtimeArgs": [
+        "exec",
+        "--using=24.19.0",
+        "bun",
+        "run",
+        "--cwd",
+        "apps/fumadocs",
+        "dev"
+      ],
+      "port": 4000
     }
   ]
 }

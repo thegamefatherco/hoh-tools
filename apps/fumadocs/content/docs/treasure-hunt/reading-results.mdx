@@ -1,0 +1,50 @@
+---
+title: Reading the results
+description: What the numbers, deductions and tables of the negotiation helper mean.
+---
+
+Every recommendation comes with numbers and an **Analysis** panel. This page explains each part.
+
+## The three numbers
+
+| Number | Meaning |
+| --- | --- |
+| **Combinations still possible** | How many sets of wants (what each of the 5 characters wants) still fit every colour you entered. |
+| **Chance this turn is the full solve** | The chance that the recommended placement turns all 5 slots green right now. |
+| **Chance to clear all slots from here** | The chance to clear the negotiation within the turns left, if you follow the helper on every turn. |
+
+All remaining combinations are equally likely, so these chances are exact counts, not estimates. Very small chances show as `<0.1%`; chances under 10% show one decimal.
+
+The second number is often low, even 0%, while the third is high. That is expected: the best move usually *buys information* for the next turn instead of guessing.
+
+## Banners
+
+A banner above the slots explains special situations:
+
+- **Opening**: on the first turn the helper names the best *repeat pattern* and its clear chance, and the next best one. A pattern such as `2+1+1+1` reads "2 of one item, rest different"; `1+1+1+1+1` means all different. Which items you use does not matter on the first turn, only how many repeat.
+- **Time limit**: the search has a time budget. If it runs out, the move shown is the best found rather than a proven optimum.
+- **Solved** / **Out of turns**: the game is over. When out of turns, the helper lists the combinations that were still possible if there are only a few.
+
+## Deductions
+
+The deductions list sums up what the colours have told you so far:
+
+- How many combinations of wants still fit.
+- For each slot: **solved** (it showed green), **must be** a single item, or the items it can still want with their chance, plus the items **ruled out** for it.
+- Items **eliminated** for every open slot: no character still wants them.
+- Items certainly **wanted** by some open slot, and which slots that can be.
+- Items **not tried yet**.
+
+Before the first turn nothing is known: every slot is equally likely to want any item of the pool.
+
+## Optimal moves, as text
+
+The recommended placement as a list, *Slot 1: B · item name*, for when you prefer reading to icons. Slots already solved are marked *(keep)*.
+
+## Where each item can still be
+
+A table with one row per slot and one column per item. Each cell is the chance that this slot wants that item, shaded by how likely it is. A column of zeros is an eliminated item; a row with a single non-zero cell is a slot that must be that item.
+
+## How the recommendation is worked out
+
+The collapsible section at the bottom of the panel explains the method in short, and lists the [assumptions](/docs/treasure-hunt/negotiation#assumptions) the helper makes. For the full details see [how it works](/docs/treasure-hunt/how-it-works).

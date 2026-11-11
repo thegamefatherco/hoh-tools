@@ -1,5 +1,6 @@
 {
   "name": "hoh-tools",
+  "version": "0.1.0",
   "private": true,
   "workspaces": {
     "packages": [
@@ -42,7 +43,8 @@
     "turbo": "^2.11.7",
     "typescript": "^6.0.3",
     "ultracite": "8.0.0",
-    "varlock": "catalog:"
+    "varlock": "catalog:",
+    "wrangler": "^4.160.0"
   },
   "packageManager": "bun@1.3.10"
 }

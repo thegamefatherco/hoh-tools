@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: en-US
+early_access: false
+
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: true
+  sequence_diagrams: false
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - main
+  path_filters:
+    - "!bun.lock"
+    - "!**/routeTree.gen.ts"
+    - "!apps/*/src/env.ts"
+    - "!**/dist/**"
+    - "!**/.output/**"
+    - "!**/.wxt/**"
+    - "!.agents/**"
+    - "!skills-lock.json"
+    - "!packages/negotiation/fixtures/**"
+  path_instructions:
+    - path: "packages/negotiation/**"
+      instructions: >-
+        Core solver logic. Focus on algorithmic correctness, edge cases (empty or exhausted inputs, ties, off-by-one) and determinism. Logic changes should come with bun tests in packages/negotiation/tests.
+    - path: "apps/extension/**"
+      instructions: >-
+        WXT Manifest V3 extension. Flag any new permissions or host_permissions and ask for justification. Background/worker code must use same-origin unlisted scripts, not Vite `?worker` imports (those crash the extension renderer).
+    - path: "apps/web/**"
+      instructions: >-
+        The site is prerendered and deployed as static assets only. Flag server functions, server routes or anything that requires a runtime server.
+    - path: ".github/workflows/**"
+      instructions: >-
+        Check least-privilege `permissions`, that secrets are only passed via env to the steps that need them, and that untrusted `github.*` context values are never interpolated directly into `run:` scripts.
+  tools:
+    oxc:
+      enabled: true
+    actionlint:
+      enabled: true
+    yamllint:
+      enabled: true
+    gitleaks:
+      enabled: true
+    shellcheck:
+      enabled: true
+    markdownlint:
+      enabled: true
+    biome:
+      enabled: false
+    eslint:
+      enabled: false
+
+chat:
+  auto_reply: true

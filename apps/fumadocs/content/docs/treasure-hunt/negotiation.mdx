@@ -1,0 +1,63 @@
+---
+title: Negotiation helper
+description: Play Treasure Hunt negotiations with the best placement for every turn.
+---
+
+The negotiation helper solves the Treasure Hunt negotiation mini-game. For every turn it tells you which item to put in each slot, and how likely you are to clear the negotiation from there.
+
+Open it on the web at `/treasure-hunt/negotiation`, or in the [browser extension](/docs/treasure-hunt/extension) next to the game.
+
+## The mini-game
+
+A negotiation has **5 characters**, one per slot. Each character wants one item from the negotiation's pool. The helper names pool items by letter (A, B, C, …) and shows their icon and name.
+
+You have **3 turns**. Each turn you place an item in every slot, and the game colours each slot:
+
+| Colour | Meaning |
+| --- | --- |
+| **Green** | Right item, right slot. |
+| **Orange** | Not green, but another slot that is not green this turn wants this item. |
+| **Red** | No slot that is not green this turn wants this item. |
+
+You clear the negotiation when all 5 slots are green.
+
+## Set up
+
+Pick three things at the top:
+
+1. **Difficulty**: the Treasure Hunt difficulty you are playing.
+2. **Your age**: your current age. The pool contains goods of your own age and amounts depend on it, so the helper needs it to show the right items.
+3. **Negotiation**: the encounter, grouped by stage.
+
+The helper remembers your setup, so next time it opens on the same negotiation.
+
+## Play a turn
+
+1. The helper recommends a placement. Each slot card shows the item to place.
+2. Place those items in the game. You can change the item of any slot if you placed something else; the helper works from what you actually placed.
+3. Mark the colour the game showed on every slot: Green, Orange or Red.
+4. Press **Submit result**. The helper works out the next recommendation.
+
+Shortcuts:
+
+- **All green** marks every slot green and finishes the game when you clear it.
+- **Undo last turn** removes the last submitted turn, for example after a wrong colour.
+
+The panel title shows where you are: _Turn N of 3_, _Solved_, or _Out of turns_. Change any setup field to start a new game.
+
+Slots that came back green are kept: the helper recommends the same item there again, marked _(keep)_ in the list of moves.
+
+## No combination fits
+
+If you see **"No combination fits all the colours you entered"**, no set of wants matches the turns you submitted. Usually one colour was entered wrong. Use **Undo last turn** and enter the colours again.
+
+## Assumptions
+
+The game data does not confirm everything the helper relies on. It assumes:
+
+- Each character independently wants any item of the pool with equal chance, and several characters may want the same item. If this is wrong, the percentages are off, but the deductions are still valid.
+- Orange means some other slot that is not green this turn wants the item, without counting copies. If the game does count copies, repeated items can lead to _no combination fits_; use Undo.
+- Every negotiation has 5 characters and 3 turns. Amounts already include the negotiation's factor.
+- Goods named "current" or "previous" are counted from your own age.
+
+Next: [reading the results](/docs/treasure-hunt/reading-results).

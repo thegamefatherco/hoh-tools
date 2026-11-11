@@ -9,5 +9,8 @@ export default defineConfig({
     "packages/negotiation/fixtures/**",
     "packages/negotiation/input/**",
     "packages/negotiation/src/generated/**",
+    // Vendored agent skills, not project code.
+    ".agents/**",
+    ".claude/skills/**",
   ],
 });
