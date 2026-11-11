@@ -14,7 +14,12 @@ export interface ProviderProps {
 
 export function Provider({ pathname, params, children }: ProviderProps) {
   return (
-    <RootProvider pathname={pathname} params={params} navigate={navigate} search={{ SearchDialog }}>
+    <RootProvider
+      pathname={pathname}
+      params={params}
+      navigate={navigate}
+      search={{ SearchDialog }}
+    >
       {children}
     </RootProvider>
   );

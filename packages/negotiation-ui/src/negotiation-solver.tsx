@@ -6,14 +6,22 @@ import { AnalysisPanel } from "./analysis-panel";
 import { EncounterList } from "./encounter-list";
 import { ItemPool } from "./item-pool";
 import { SetupBar } from "./setup-bar";
+import type { SolverWorker } from "./solver-client";
 import { TurnPanel } from "./turn-panel";
 import { useNegotiation } from "./use-negotiation";
 
 const NO_ITEMS: readonly number[] = [];
 
-/** The solver page. Client-only: it reads local storage and runs a web worker. */
-export const NegotiationSolver = () => {
-  const { dispatch, game, session, status } = useNegotiation();
+/**
+ * The solver page. Client-only: it reads local storage and runs a web worker.
+ * `createWorker` must be a stable (module-level) function; it starts the solver worker.
+ */
+export const NegotiationSolver = ({
+  createWorker,
+}: {
+  createWorker: () => SolverWorker;
+}) => {
+  const { dispatch, game, session, status } = useNegotiation(createWorker);
   const { history, result, setup } = session;
   const turnsPlayed = history.length;
 

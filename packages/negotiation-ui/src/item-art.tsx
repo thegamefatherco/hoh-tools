@@ -17,8 +17,27 @@ export const breakable = (label: string): string =>
 export const amountText = (item: PoolItem): string =>
   `${formatCount(item.amount)} · ${formatFactor(item.factor)}`;
 
+const ICON_FILE_NAME = /\/(?<name>[^/]+)\.webp$/u;
+
+/**
+ * Icon URLs by icon name. The bundler of whichever app renders the solver emits the
+ * files and hands back their final URLs, so no app has to copy them into `public/`.
+ */
+const ICON_URLS: ReadonlyMap<string, string> = new Map(
+  Object.entries(
+    import.meta.glob<string>("./assets/icons/*.webp", {
+      eager: true,
+      import: "default",
+      query: "?url",
+    })
+  ).map(([file, url]) => [
+    file.match(ICON_FILE_NAME)?.groups?.name ?? file,
+    url,
+  ])
+);
+
 export const iconUrl = (item: PoolItem): string | null =>
-  item.iconName === null ? null : `/negotiation/icons/${item.iconName}.webp`;
+  item.iconName === null ? null : (ICON_URLS.get(item.iconName) ?? null);
 
 export const LetterBadge = ({
   item,

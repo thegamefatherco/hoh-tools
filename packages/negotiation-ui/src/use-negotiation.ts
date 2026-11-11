@@ -32,9 +32,6 @@ const saveSetup = (setup: Setup): void => {
   }
 };
 
-const createWorker = (): SolverWorker =>
-  new Worker(new URL("solver.worker.ts", import.meta.url), { type: "module" });
-
 const initSession = (): Session => createSession(loadSetup());
 
 export interface Negotiation {
@@ -45,7 +42,9 @@ export interface Negotiation {
 }
 
 /** Session state for the solver page. Client-only: it reads storage and starts a worker. */
-export const useNegotiation = (): Negotiation => {
+export const useNegotiation = (
+  createWorker: () => SolverWorker
+): Negotiation => {
   const [session, dispatch] = useReducer(reduce, undefined, initSession);
   const clientRef = useRef<SolverClient | null>(null);
 
@@ -61,7 +60,7 @@ export const useNegotiation = (): Negotiation => {
       client.dispose();
       clientRef.current = null;
     };
-  }, []);
+  }, [createWorker]);
 
   const { request, setup } = session;
   useEffect(() => {

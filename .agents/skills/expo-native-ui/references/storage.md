@@ -18,11 +18,11 @@ const user = JSON.parse(localStorage.getItem("user") ?? "{}");
 
 ## When to Use What
 
-| Use Case                                             | Solution                |
-| ---------------------------------------------------- | ----------------------- |
+| Use Case | Solution |
+| --- | --- |
 | Simple key-value (settings, preferences, small data) | `localStorage` polyfill |
-| Large datasets, complex queries, relational data     | Full `expo-sqlite`      |
-| Sensitive data (tokens, passwords)                   | `expo-secure-store`     |
+| Large datasets, complex queries, relational data | Full `expo-sqlite` |
+| Sensitive data (tokens, passwords) | `expo-secure-store` |
 
 ## Storage with React State
 
@@ -62,10 +62,13 @@ import { useSyncExternalStore } from "react";
 
 import { storage } from "@/utils/storage";
 
-export function useStorage<T>(key: string, defaultValue: T): [T, (value: T) => void] {
+export function useStorage<T>(
+  key: string,
+  defaultValue: T
+): [T, (value: T) => void] {
   const value = useSyncExternalStore(
     (cb) => storage.subscribe(key, cb),
-    () => storage.get(key, defaultValue),
+    () => storage.get(key, defaultValue)
   );
 
   return [value, (newValue: T) => storage.set(key, newValue)];
@@ -79,7 +82,10 @@ function Settings() {
   const [theme, setTheme] = useStorage("theme", "light");
 
   return (
-    <Switch value={theme === "dark"} onValueChange={(dark) => setTheme(dark ? "dark" : "light")} />
+    <Switch
+      value={theme === "dark"}
+      onValueChange={(dark) => setTheme(dark ? "dark" : "light")}
+    />
   );
 }
 ```
@@ -104,8 +110,13 @@ await db.execAsync(`
 `);
 
 // Insert
-await db.runAsync("INSERT INTO events (title, date) VALUES (?, ?)", ["Meeting", "2024-01-15"]);
+await db.runAsync("INSERT INTO events (title, date) VALUES (?, ?)", [
+  "Meeting",
+  "2024-01-15",
+]);
 
 // Query
-const events = await db.getAllAsync("SELECT * FROM events WHERE date > ?", ["2024-01-01"]);
+const events = await db.getAllAsync("SELECT * FROM events WHERE date > ?", [
+  "2024-01-01",
+]);
 ```

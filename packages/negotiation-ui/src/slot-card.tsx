@@ -8,6 +8,9 @@ import {
 import { cn } from "@hoh-tools/ui/lib/utils";
 import type { Dispatch } from "react";
 
+import greenIcon from "./assets/feedback/green.webp";
+import orangeIcon from "./assets/feedback/orange.webp";
+import redIcon from "./assets/feedback/red.webp";
 import { ItemIcon, LetterBadge, amountText, breakable } from "./item-art";
 import type { Action } from "./session";
 
@@ -22,19 +25,19 @@ const FEEDBACK: readonly {
 }[] = [
   {
     color: "G",
-    icon: "/negotiation/feedback/green.webp",
+    icon: greenIcon,
     label: "Green",
     selected: "border-fb-green bg-fb-green-soft",
   },
   {
     color: "O",
-    icon: "/negotiation/feedback/orange.webp",
+    icon: orangeIcon,
     label: "Orange",
     selected: "border-fb-orange bg-fb-orange-soft",
   },
   {
     color: "R",
-    icon: "/negotiation/feedback/red.webp",
+    icon: redIcon,
     label: "Red",
     selected: "border-fb-red bg-fb-red-soft",
   },

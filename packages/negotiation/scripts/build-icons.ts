@@ -1,5 +1,5 @@
 /**
- * Turns the source icon PNGs into small WebP files for the web app.
+ * Turns the source icon PNGs into small WebP files for the solver UI.
  *
  * Resource icons: the required set is derived from the game data (every gift of every
  * reachable negotiation at every age). Each `input/icons/icon_<name>.png` is trimmed to
@@ -10,7 +10,7 @@
  * saved as `<out>/feedback/<name>.webp`.
  *
  * Usage: bun scripts/build-icons.ts [--out <dir>]
- *   default out: ../../apps/web/public/negotiation
+ *   default out: ../negotiation-ui/src/assets
  */
 import { access, mkdir } from "node:fs/promises";
 import path from "node:path";
@@ -25,11 +25,9 @@ const FEEDBACK_DIR = path.join(PACKAGE_ROOT, "input", "feedback-icons");
 const DEFAULT_OUT = path.join(
   PACKAGE_ROOT,
   "..",
-  "..",
-  "apps",
-  "web",
-  "public",
-  "negotiation"
+  "negotiation-ui",
+  "src",
+  "assets"
 );
 const FEEDBACK_NAMES = ["green", "orange", "red"];
 const ICON_SIZE = 96;
