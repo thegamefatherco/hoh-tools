@@ -15,19 +15,14 @@ import { codeFromColors, OPEN_SLOT } from "@hoh-tools/negotiation/engine";
 import type { Color } from "@hoh-tools/negotiation/engine";
 import type { SolveInput, SolveResult } from "@hoh-tools/negotiation/solver";
 
-export const SLOT_OPTIONS = [3, 4, 5] as const;
-export const TURN_OPTIONS = [1, 2, 3] as const;
-const DEFAULT_SLOTS = 5;
+/** Every negotiation has 5 characters. */
+export const CHARACTERS = 5;
 
 export interface Setup {
   /** 0-based age index. */
   age: number;
   difficultyIndex: number;
   encounterKey: string;
-  /** Number of characters. */
-  slots: number;
-  /** Turns chosen by the user, or null to use the game data. */
-  turnsOverride: number | null;
 }
 
 export interface Turn {
@@ -60,8 +55,6 @@ export type Action =
   | { index: number; type: "difficulty" }
   | { key: string; type: "encounter" }
   | { age: number; type: "age" }
-  | { slots: number; type: "slots" }
-  | { turns: number; type: "turns" }
   | { type: "new-game" }
   | { item: number; slot: number; type: "pick" }
   | { color: Color; slot: number; type: "color" }
@@ -74,9 +67,7 @@ export interface Game {
   difficulty: Difficulty;
   encounter: Encounter;
   pool: PoolItem[];
-  /** Turns from the game data. */
-  gameTurns: number;
-  /** Turns in effect: the user's override, else the game data. */
+  /** Turns from the game data (3 in every negotiation). */
   turns: number;
 }
 
@@ -93,11 +84,6 @@ const clampIndex = (
   value < length
     ? value
     : fallback;
-
-const includesNumber = (
-  options: readonly number[],
-  value: unknown
-): value is number => typeof value === "number" && options.includes(value);
 
 /** Turns stored or partial setup into a valid one, falling back to defaults. */
 export const normalizeSetup = (stored: Partial<Setup> = {}): Setup => {
@@ -119,12 +105,6 @@ export const normalizeSetup = (stored: Partial<Setup> = {}): Setup => {
     age: clampIndex(stored.age, AGE_COUNT, 0),
     difficultyIndex,
     encounterKey: encounter?.key ?? "",
-    slots: includesNumber(SLOT_OPTIONS, stored.slots)
-      ? stored.slots
-      : DEFAULT_SLOTS,
-    turnsOverride: includesNumber(TURN_OPTIONS, stored.turnsOverride)
-      ? stored.turnsOverride
-      : null,
   };
 };
 
@@ -137,9 +117,8 @@ export const describeGame = (setup: Setup): Game => {
   return {
     difficulty,
     encounter,
-    gameTurns: game.turns,
     pool: game.pool,
-    turns: setup.turnsOverride ?? game.turns,
+    turns: game.turns,
   };
 };
 
@@ -168,7 +147,7 @@ const buildRequest = (
         code: codeFromColors(turn.colors),
         guess: turn.guess,
       })),
-      k: setup.slots,
+      k: CHARACTERS,
       n: game.pool.length,
     },
   };
@@ -250,27 +229,13 @@ const changeSetup = (session: Session, action: Action): Setup | null => {
   switch (action.type) {
     case "difficulty": {
       // Keep the same stage and encounter position in the new difficulty.
-      return normalizeSetup({
-        ...setup,
-        difficultyIndex: action.index,
-        turnsOverride: null,
-      });
+      return normalizeSetup({ ...setup, difficultyIndex: action.index });
     }
     case "encounter": {
-      return normalizeSetup({
-        ...setup,
-        encounterKey: action.key,
-        turnsOverride: null,
-      });
+      return normalizeSetup({ ...setup, encounterKey: action.key });
     }
     case "age": {
-      return normalizeSetup({ ...setup, age: action.age, turnsOverride: null });
-    }
-    case "slots": {
-      return normalizeSetup({ ...setup, slots: action.slots });
-    }
-    case "turns": {
-      return normalizeSetup({ ...setup, turnsOverride: action.turns });
+      return normalizeSetup({ ...setup, age: action.age });
     }
     case "new-game": {
       return setup;

@@ -1,10 +1,22 @@
 import { describe, expect, test } from "bun:test";
 
 import { DIFFICULTIES, encountersOf } from "@hoh-tools/negotiation/data";
+import {
+  allSecrets,
+  colorsFromCode,
+  makeSpace,
+  partition,
+} from "@hoh-tools/negotiation/engine";
 import { OPENINGS } from "@hoh-tools/negotiation/openings";
 import { solve } from "@hoh-tools/negotiation/solver";
 
-import { createSession, describeGame, gameStatus, reduce } from "./session";
+import {
+  CHARACTERS,
+  createSession,
+  describeGame,
+  gameStatus,
+  reduce,
+} from "./session";
 import type { Action, Session } from "./session";
 
 const FEUDAL_AGE = 8;
@@ -34,8 +46,6 @@ const encounterWithItems = (stage: number, items: number): string => {
         age: FEUDAL_AGE,
         difficultyIndex: DIFFICULTY_9,
         encounterKey: encounter.key,
-        slots: 5,
-        turnsOverride: null,
       }).pool.length === items
   );
   if (found === undefined) {
@@ -59,14 +69,11 @@ describe("setup", () => {
       age: 99,
       difficultyIndex: -1,
       encounterKey: "nope",
-      slots: 7,
     });
     expect(session.setup).toEqual({
       age: 0,
       difficultyIndex: 0,
       encounterKey: encountersOf(DIFFICULTIES[0])[0].key,
-      slots: 5,
-      turnsOverride: null,
     });
     expect(session.busy).toBe(true);
     expect(session.result).toBeNull();
@@ -91,16 +98,10 @@ describe("setup", () => {
     });
   });
 
-  test("turns override survives a new game but not an encounter change", () => {
-    const overridden = reduce(createSession(), { turns: 2, type: "turns" });
-    expect(overridden.request.input.T).toBe(2);
-    expect(reduce(overridden, { type: "new-game" }).request.input.T).toBe(2);
-    const other = encountersOf(DIFFICULTIES[0])[1].key;
-    const switched = reduce(overridden, { key: other, type: "encounter" });
-    expect(switched.setup.turnsOverride).toBeNull();
-    expect(switched.request.input.T).toBe(
-      describeGame(switched.setup).gameTurns
-    );
+  test("every negotiation has 5 characters and the game's 3 turns", () => {
+    const { input } = createSession().request;
+    expect(input.k).toBe(CHARACTERS);
+    expect(input.T).toBe(3);
   });
 });
 
@@ -221,16 +222,32 @@ describe("playing", () => {
   });
 
   test("running out of turns loses and reports the remaining combinations", () => {
-    const session = settle(reduce(start(), { turns: 1, type: "turns" }));
-    const colors = (session.placement ?? []).map((_, slot): Action => ({
-      color: "R",
-      slot,
-      type: "color",
-    }));
-    const lost = settle(apply(session, ...colors, { type: "submit" }));
-    expect(gameStatus(lost)).toBe("lost");
-    expect(lost.result).toMatchObject({ count: 5 ** 5, status: "over" });
-    expect(lost.placement).toBeNull();
+    let session = start();
+    const space = makeSpace(session.request.input.n, CHARACTERS);
+    let candidates = allSecrets(space);
+    // An adversary: answer every turn with the colours that keep the most combinations.
+    while (gameStatus(session) === "playing") {
+      const placement = session.placement ?? [];
+      let largest: [number, Int32Array] = [0, new Int32Array()];
+      for (const part of partition(space, candidates, placement)) {
+        if (part[1].length > largest[1].length) {
+          largest = part;
+        }
+      }
+      const [code, kept] = largest;
+      candidates = kept;
+      const colors = colorsFromCode(code, CHARACTERS).map(
+        (color, slot): Action => ({ color, slot, type: "color" })
+      );
+      session = settle(apply(session, ...colors, { type: "submit" }));
+    }
+    expect(gameStatus(session)).toBe("lost");
+    expect(session.history).toHaveLength(3);
+    expect(session.result).toMatchObject({
+      count: candidates.length,
+      status: "over",
+    });
+    expect(session.placement).toBeNull();
   });
 
   test("contradictory colours are reported as inconsistent", () => {

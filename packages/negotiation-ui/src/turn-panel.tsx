@@ -180,19 +180,21 @@ export const TurnPanel = ({
         <TurnBanner session={session} status={status} />
 
         {slots.length > 0 && status === "playing" ? (
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(10.5rem,1fr))] gap-2">
-            {slots.map(({ item, slot }) => (
-              <SlotCard
-                color={colors[slot] ?? null}
-                dispatch={dispatch}
-                isChanged={recommended[slot] !== item}
-                isLocked={(locked[slot] ?? OPEN_SLOT) !== OPEN_SLOT}
-                itemIndex={item}
-                key={slot}
-                pool={game.pool}
-                slot={slot}
-              />
-            ))}
+          <div className="@container">
+            <div className="grid gap-2 @3xl:grid-cols-5">
+              {slots.map(({ item, slot }) => (
+                <SlotCard
+                  color={colors[slot] ?? null}
+                  dispatch={dispatch}
+                  isChanged={recommended[slot] !== item}
+                  isLocked={(locked[slot] ?? OPEN_SLOT) !== OPEN_SLOT}
+                  itemIndex={item}
+                  key={slot}
+                  pool={game.pool}
+                  slot={slot}
+                />
+              ))}
+            </div>
           </div>
         ) : null}
 

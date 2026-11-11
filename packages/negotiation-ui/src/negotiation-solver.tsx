@@ -3,7 +3,6 @@ import { Card, CardContent } from "@hoh-tools/ui/components/card";
 import { useMemo } from "react";
 
 import { AnalysisPanel } from "./analysis-panel";
-import { EncounterList } from "./encounter-list";
 import { ItemPool } from "./item-pool";
 import { SetupBar } from "./setup-bar";
 import type { SolverWorker } from "./solver-client";
@@ -44,11 +43,6 @@ export const NegotiationSolver = ({
       <Card>
         <CardContent className="grid gap-4">
           <SetupBar dispatch={dispatch} game={game} setup={setup} />
-          <EncounterList
-            difficulty={game.difficulty}
-            dispatch={dispatch}
-            setup={setup}
-          />
           <ItemPool
             eliminated={deductions?.eliminated ?? NO_ITEMS}
             pool={game.pool}
@@ -56,20 +50,18 @@ export const NegotiationSolver = ({
         </CardContent>
       </Card>
 
-      <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
-        <TurnPanel
-          dispatch={dispatch}
-          game={game}
-          session={session}
-          status={status}
-        />
-        <AnalysisPanel
-          deductions={deductions}
-          isPlaying={status === "playing"}
-          pool={game.pool}
-          result={result}
-        />
-      </div>
+      <TurnPanel
+        dispatch={dispatch}
+        game={game}
+        session={session}
+        status={status}
+      />
+      <AnalysisPanel
+        deductions={deductions}
+        isPlaying={status === "playing"}
+        pool={game.pool}
+        result={result}
+      />
     </div>
   );
 };

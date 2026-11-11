@@ -1,9 +1,5 @@
 import type { PoolItem } from "@hoh-tools/negotiation/data";
-import {
-  formatCount,
-  formatFactor,
-  letterOf,
-} from "@hoh-tools/negotiation/format";
+import { formatCount, letterOf } from "@hoh-tools/negotiation/format";
 import { cn } from "@hoh-tools/ui/lib/utils";
 
 const BREAK_AFTER = /(?<separator>[._])/gu;
@@ -13,9 +9,13 @@ const ZERO_WIDTH_SPACE = "\u200B";
 export const breakable = (label: string): string =>
   label.replaceAll(BREAK_AFTER, `$<separator>${ZERO_WIDTH_SPACE}`);
 
-/** "2,000 · ×1.55" */
+/** What the game hands out: the base amount scaled by the negotiation's factor. */
+export const finalAmount = (item: PoolItem): number =>
+  Math.round(item.amount * item.factor);
+
+/** "3,100" for 2,000 at ×1.55. */
 export const amountText = (item: PoolItem): string =>
-  `${formatCount(item.amount)} · ${formatFactor(item.factor)}`;
+  formatCount(finalAmount(item));
 
 const ICON_FILE_NAME = /\/(?<name>[^/]+)\.webp$/u;
 

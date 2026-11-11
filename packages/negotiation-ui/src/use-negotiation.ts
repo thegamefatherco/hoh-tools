@@ -22,10 +22,10 @@ const loadSetup = (): Partial<Setup> | undefined => {
 
 const saveSetup = (setup: Setup): void => {
   try {
-    const { age, difficultyIndex, encounterKey, slots } = setup;
+    const { age, difficultyIndex, encounterKey } = setup;
     localStorage.setItem(
       STORAGE_KEY,
-      JSON.stringify({ age, difficultyIndex, encounterKey, slots })
+      JSON.stringify({ age, difficultyIndex, encounterKey })
     );
   } catch {
     // Storage is unavailable or full: the setup is simply not remembered.

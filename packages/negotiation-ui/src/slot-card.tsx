@@ -1,11 +1,14 @@
 import type { PoolItem } from "@hoh-tools/negotiation/data";
 import type { Color } from "@hoh-tools/negotiation/engine";
-import { letterOf } from "@hoh-tools/negotiation/format";
 import {
-  NativeSelect,
-  NativeSelectOption,
-} from "@hoh-tools/ui/components/native-select";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@hoh-tools/ui/components/select";
 import { cn } from "@hoh-tools/ui/lib/utils";
+import { Lock } from "lucide-react";
 import type { Dispatch } from "react";
 
 import greenIcon from "./assets/feedback/green.webp";
@@ -16,6 +19,7 @@ import type { Action } from "./session";
 
 const ART_SIZE = 44;
 const FEEDBACK_ICON_SIZE = 24;
+const OPTION_ICON_SIZE = 24;
 
 const FEEDBACK: readonly {
   color: Color;
@@ -43,12 +47,65 @@ const FEEDBACK: readonly {
   },
 ];
 
-const statusLabel = (isLocked: boolean, isChanged: boolean): string => {
+const SlotStatus = ({
+  isChanged,
+  isLocked,
+}: {
+  isChanged: boolean;
+  isLocked: boolean;
+}) => {
   if (isLocked) {
-    return "Locked";
+    return (
+      <span className="flex items-center gap-1">
+        <Lock aria-hidden="true" className="size-3" />
+        Locked
+      </span>
+    );
   }
-  return isChanged ? "Changed" : "";
+  return isChanged ? <span>Changed</span> : null;
 };
+
+/** The picked item as a tile: art with its letter, name, and final amount. */
+const ItemTile = ({
+  item,
+  itemIndex,
+}: {
+  item: PoolItem;
+  itemIndex: number;
+}) => (
+  <span className="flex w-full flex-col items-center gap-1 text-center">
+    <span className="bg-muted relative grid size-12 shrink-0 place-items-center">
+      <ItemIcon item={item} size={ART_SIZE} />
+      <LetterBadge
+        className="ring-card absolute -top-1.5 -left-1.5 ring-2"
+        item={itemIndex}
+      />
+    </span>
+    <span className="text-foreground text-xs font-medium wrap-break-word">
+      {breakable(item.label)}
+    </span>
+    <span className="text-muted-foreground font-mono text-xs tabular-nums">
+      {amountText(item)}
+    </span>
+  </span>
+);
+
+const ItemOption = ({
+  item,
+  itemIndex,
+}: {
+  item: PoolItem;
+  itemIndex: number;
+}) => (
+  <span className="flex w-full items-center gap-2">
+    <LetterBadge item={itemIndex} />
+    <ItemIcon item={item} size={OPTION_ICON_SIZE} />
+    <span>{item.label}</span>
+    <span className="text-muted-foreground ml-auto pl-3 font-mono tabular-nums">
+      {amountText(item)}
+    </span>
+  </span>
+);
 
 export const SlotCard = ({
   color,
@@ -68,58 +125,50 @@ export const SlotCard = ({
   pool: readonly PoolItem[];
   slot: number;
 }) => {
-  const item = pool[itemIndex];
   const slotNumber = slot + 1;
 
   return (
     <div
       className={cn(
-        "border-border bg-card grid content-start gap-2.5 border p-3",
-        isLocked && "border-fb-green/60"
+        "border-border bg-card grid grid-cols-[8rem_minmax(0,1fr)] items-center gap-2.5 border p-3 transition-opacity motion-reduce:transition-none @3xl:grid-cols-1 @3xl:content-start @3xl:items-stretch",
+        isLocked && "opacity-50"
       )}
     >
-      <div className="text-muted-foreground flex items-center justify-between text-xs font-medium">
+      <div className="text-muted-foreground col-span-full flex items-center justify-between text-xs font-medium">
         <span>Slot {slotNumber}</span>
-        <span>{statusLabel(isLocked, isChanged)}</span>
+        <SlotStatus isChanged={isChanged} isLocked={isLocked} />
       </div>
 
-      <div className="flex items-center gap-2.5">
-        <span className="bg-muted relative grid size-12 shrink-0 place-items-center">
-          <ItemIcon item={item} size={ART_SIZE} />
-          <LetterBadge
-            className="ring-card absolute -top-1.5 -left-1.5 ring-2"
-            item={itemIndex}
-          />
-        </span>
-        <div className="min-w-0">
-          <div className="text-sm font-medium wrap-break-word">
-            {breakable(item.label)}
-          </div>
-          <div className="text-muted-foreground font-mono text-xs tabular-nums">
-            {amountText(item)}
-          </div>
-        </div>
-      </div>
-
-      <NativeSelect
-        aria-label={`Item placed in slot ${slotNumber}`}
-        className="w-full"
+      <Select
         disabled={isLocked}
-        onChange={(event) => {
-          dispatch({
-            item: Number(event.target.value),
-            slot,
-            type: "pick",
-          });
+        onValueChange={(item) => {
+          if (item !== null) {
+            dispatch({ item, slot, type: "pick" });
+          }
         }}
         value={itemIndex}
       >
-        {pool.map((option, index) => (
-          <NativeSelectOption key={option.giftId} value={index}>
-            {letterOf(index)} · {option.label}
-          </NativeSelectOption>
-        ))}
-      </NativeSelect>
+        <SelectTrigger
+          aria-label={`Item placed in slot ${slotNumber}`}
+          className="relative w-full justify-center px-2 py-2.5 whitespace-normal data-[size=default]:h-auto *:data-[slot=select-value]:line-clamp-none [&>svg]:absolute [&>svg]:top-1.5 [&>svg]:right-1.5"
+        >
+          <SelectValue className="w-full">
+            {(value: number) => (
+              <ItemTile item={pool[value]} itemIndex={value} />
+            )}
+          </SelectValue>
+        </SelectTrigger>
+        <SelectContent
+          alignItemWithTrigger={false}
+          className="w-max min-w-(--anchor-width)"
+        >
+          {pool.map((option, index) => (
+            <SelectItem key={option.giftId} value={index}>
+              <ItemOption item={option} itemIndex={index} />
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
 
       <fieldset className="grid grid-cols-3 gap-1.5">
         <legend className="sr-only">Feedback for slot {slotNumber}</legend>

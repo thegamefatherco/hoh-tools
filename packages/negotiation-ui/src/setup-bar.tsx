@@ -1,14 +1,18 @@
 import { AGE_LABELS, DIFFICULTIES } from "@hoh-tools/negotiation/data";
+import type { Difficulty } from "@hoh-tools/negotiation/data";
 import { formatCount } from "@hoh-tools/negotiation/format";
 import { Button } from "@hoh-tools/ui/components/button";
 import { Label } from "@hoh-tools/ui/components/label";
 import {
-  NativeSelect,
-  NativeSelectOption,
-} from "@hoh-tools/ui/components/native-select";
-import type { ChangeEvent, Dispatch, ReactNode } from "react";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@hoh-tools/ui/components/select";
+import type { Dispatch, ReactNode } from "react";
 
-import { SLOT_OPTIONS, TURN_OPTIONS } from "./session";
+import { EncounterSelect, useDifficultyOdds } from "./encounter-list";
 import type { Action, Game, Setup } from "./session";
 
 const Field = ({
@@ -28,8 +32,8 @@ const Field = ({
   </div>
 );
 
-const numberOf = (event: ChangeEvent<HTMLSelectElement>): number =>
-  Number(event.target.value);
+const difficultyName = (difficulty: Difficulty): string =>
+  `Difficulty ${difficulty.difficulty + 1} · ${formatCount(difficulty.recommendedPower)} power`;
 
 export const SetupBar = ({
   dispatch,
@@ -39,80 +43,85 @@ export const SetupBar = ({
   dispatch: Dispatch<Action>;
   game: Game;
   setup: Setup;
-}) => (
-  <div className="flex flex-wrap items-end gap-3">
-    <Field id="negotiation-difficulty" label="Difficulty">
-      <NativeSelect
-        id="negotiation-difficulty"
-        onChange={(event) => {
-          dispatch({ index: numberOf(event), type: "difficulty" });
-        }}
-        value={setup.difficultyIndex}
-      >
-        {DIFFICULTIES.map((difficulty) => (
-          <NativeSelectOption key={difficulty.index} value={difficulty.index}>
-            Difficulty {difficulty.difficulty + 1} ·{" "}
-            {formatCount(difficulty.recommendedPower)} power
-          </NativeSelectOption>
-        ))}
-      </NativeSelect>
-    </Field>
+}) => {
+  const odds = useDifficultyOdds(game.difficulty, setup.age);
 
-    <Field id="negotiation-age" label="Your age">
-      <NativeSelect
-        id="negotiation-age"
-        onChange={(event) => {
-          dispatch({ age: numberOf(event), type: "age" });
-        }}
-        value={setup.age}
-      >
-        {AGE_LABELS.map((label, age) => (
-          <NativeSelectOption key={label} value={age}>
-            {label}
-          </NativeSelectOption>
-        ))}
-      </NativeSelect>
-    </Field>
+  return (
+    <div className="grid gap-2">
+      <div className="flex flex-wrap items-end gap-3">
+        <Field id="negotiation-difficulty" label="Difficulty">
+          <Select
+            onValueChange={(index) => {
+              if (index !== null && index !== setup.difficultyIndex) {
+                dispatch({ index, type: "difficulty" });
+              }
+            }}
+            value={setup.difficultyIndex}
+          >
+            <SelectTrigger className="min-w-52" id="negotiation-difficulty">
+              <SelectValue>
+                {(index: number) => difficultyName(DIFFICULTIES[index])}
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              {DIFFICULTIES.map((difficulty) => (
+                <SelectItem key={difficulty.index} value={difficulty.index}>
+                  {difficultyName(difficulty)}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </Field>
 
-    <Field id="negotiation-slots" label="Characters">
-      <NativeSelect
-        id="negotiation-slots"
-        onChange={(event) => {
-          dispatch({ slots: numberOf(event), type: "slots" });
-        }}
-        value={setup.slots}
-      >
-        {SLOT_OPTIONS.map((slots) => (
-          <NativeSelectOption key={slots} value={slots}>
-            {slots}
-          </NativeSelectOption>
-        ))}
-      </NativeSelect>
-    </Field>
+        <Field id="negotiation-age" label="Your age">
+          <Select
+            onValueChange={(age) => {
+              if (age !== null && age !== setup.age) {
+                dispatch({ age, type: "age" });
+              }
+            }}
+            value={setup.age}
+          >
+            <SelectTrigger className="min-w-40" id="negotiation-age">
+              <SelectValue>{(age: number) => AGE_LABELS[age]}</SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              {AGE_LABELS.map((label, age) => (
+                <SelectItem key={label} value={age}>
+                  {label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </Field>
 
-    <Field id="negotiation-turns" label="Turns">
-      <NativeSelect
-        id="negotiation-turns"
-        onChange={(event) => {
-          dispatch({ turns: numberOf(event), type: "turns" });
-        }}
-        value={game.turns}
-      >
-        {TURN_OPTIONS.map((turns) => (
-          <NativeSelectOption key={turns} value={turns}>
-            {turns}
-          </NativeSelectOption>
-        ))}
-      </NativeSelect>
-    </Field>
+        <Field id="negotiation-encounter" label="Negotiation">
+          <EncounterSelect
+            encounterKey={setup.encounterKey}
+            id="negotiation-encounter"
+            odds={odds}
+            onSelect={(key) => {
+              dispatch({ key, type: "encounter" });
+            }}
+          />
+        </Field>
 
-    <Button
-      onClick={() => {
-        dispatch({ type: "new-game" });
-      }}
-      variant="outline"
-    >
-      New game
-    </Button>
-  </div>
-);
+        <Button
+          onClick={() => {
+            dispatch({ type: "new-game" });
+          }}
+          variant="outline"
+        >
+          New game
+        </Button>
+      </div>
+      <p className="text-muted-foreground text-xs">
+        {odds.total} negotiations in this difficulty · about{" "}
+        <strong className="text-foreground font-mono tabular-nums">
+          {odds.expectedClears.toFixed(1)}
+        </strong>{" "}
+        cleared on average with best play, if wants are random.
+      </p>
+    </div>
+  );
+};

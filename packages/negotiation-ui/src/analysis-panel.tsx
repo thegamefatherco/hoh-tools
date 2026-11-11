@@ -106,8 +106,8 @@ const HowItWorks = () => (
           items can lead to &quot;no combination fits&quot;; use Undo.
         </li>
         <li>
-          There are 5 characters unless you change it, and the amount factor is
-          only displayed.
+          There are always 5 characters and 3 turns. Amounts already include the
+          negotiation&apos;s factor.
         </li>
         <li>
           Goods named &quot;current&quot; or &quot;previous&quot; are counted
