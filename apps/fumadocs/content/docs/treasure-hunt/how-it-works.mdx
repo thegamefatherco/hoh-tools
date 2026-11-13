@@ -12,7 +12,7 @@ A negotiation has `k` slots (always 5) and a pool of `n` items (up to 10, letter
 Feedback for a guess against a secret, per slot:
 
 - **G**: `guess[i] == secret[i]`.
-- **O**: not green, and some slot that is *not green this turn* wants `guess[i]`.
+- **O**: not green, and some slot that is _not green this turn_ wants `guess[i]`.
 - **R**: otherwise.
 
 The engine (`packages/negotiation/src/engine.ts`) stores all secrets as digits in one `Uint8Array` and encodes feedback as a base-3 number, slot `i` with weight `3^i` and G=0, O=1, R=2 (`feedbackCode`, `codeFromColors`, `colorsFromCode`). After each turn, `filterCandidates` keeps the secrets that give the same code, and `lockedAfter` locks the slots that showed green.
