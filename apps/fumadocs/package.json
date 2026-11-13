@@ -10,7 +10,8 @@
     "start": "astro dev",
     "types:check": "astro sync && tsc --noEmit",
     "astro": "astro",
-    "lint": "oxlint"
+    "lint": "oxlint",
+    "check-types": "astro sync && tsc --noEmit"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.4",

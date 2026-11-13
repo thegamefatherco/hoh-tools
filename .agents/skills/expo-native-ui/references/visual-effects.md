@@ -132,8 +132,12 @@ function GlassButton({ icon, onPress }) {
 
 ```tsx
 <GlassView style={{ borderRadius: 20, padding: 20 }}>
-  <Text style={{ fontSize: 18, fontWeight: "600", color: colors.label }}>Card Title</Text>
-  <Text style={{ color: colors.secondaryLabel, marginTop: 8 }}>Card content goes here</Text>
+  <Text style={{ fontSize: 18, fontWeight: "600", color: colors.label }}>
+    Card Title
+  </Text>
+  <Text style={{ color: colors.secondaryLabel, marginTop: 8 }}>
+    Card content goes here
+  </Text>
 </GlassView>
 ```
 
@@ -142,7 +146,10 @@ function GlassButton({ icon, onPress }) {
 Check both guards: `isLiquidGlassAvailable()` (OS support) and `isGlassEffectAPIAvailable()` — some iOS 26 beta versions lack the API and crash without the second check.
 
 ```tsx
-import { isLiquidGlassAvailable, isGlassEffectAPIAvailable } from "expo-glass-effect";
+import {
+  isLiquidGlassAvailable,
+  isGlassEffectAPIAvailable,
+} from "expo-glass-effect";
 
 const canUseGlass = isLiquidGlassAvailable() && isGlassEffectAPIAvailable();
 ```
@@ -151,7 +158,11 @@ const canUseGlass = isLiquidGlassAvailable() && isGlassEffectAPIAvailable();
 
 ```tsx
 import { BlurView } from "expo-blur";
-import { GlassView, isLiquidGlassAvailable, isGlassEffectAPIAvailable } from "expo-glass-effect";
+import {
+  GlassView,
+  isLiquidGlassAvailable,
+  isGlassEffectAPIAvailable,
+} from "expo-glass-effect";
 
 function AdaptiveGlass({ children, style }) {
   if (isLiquidGlassAvailable() && isGlassEffectAPIAvailable()) {

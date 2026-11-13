@@ -1,0 +1,12 @@
+// Assets-only Worker: serves the static Astro build from dist, no server code.
+// Deployed by .github/workflows/release.yml.
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "hoh-tools-docs",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+  },
+}

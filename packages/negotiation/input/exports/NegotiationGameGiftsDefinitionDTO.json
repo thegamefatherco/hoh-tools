@@ -1,0 +1,2280 @@
+[
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_Good_1_Current",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "10",
+              "offset": 1
+            }
+          }
+        },
+        {
+          "when": "age.BronzeAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "10"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "20"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "35"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "40"
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "45"
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "50"
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_Good_1_Previous",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "200"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "20",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "35",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "40",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "45",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "50",
+              "offset": -1
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_ResearchPoints_1",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.research_points",
+              "amount": "1"
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_SeasonPass_Good_3_Previous",
+    "mapping": {
+      "@type": "type.googleapis.com/SeasonPassAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "4"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "8",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "19",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "27",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "29",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "31",
+              "offset": -1
+            }
+          }
+        }
+      ],
+      "season_pass_group": "SeasonPass"
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_SeasonPass_Food_1",
+    "mapping": {
+      "@type": "type.googleapis.com/SeasonPassAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "1200"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "2350"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "4250"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "6450"
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "9500"
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "12300"
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "15000"
+            }
+          }
+        },
+        {
+          "when": "age.FeudalAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "17600"
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "20700"
+            }
+          }
+        },
+        {
+          "when": "age.KingdomOfSicily",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "21700"
+            }
+          }
+        }
+      ],
+      "season_pass_group": "SeasonPass"
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_Good_3_Current",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "10",
+              "offset": 1
+            }
+          }
+        },
+        {
+          "when": "age.BronzeAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "10"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "20"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "35"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "40"
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "45"
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "50"
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_Good_3_Previous",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "400"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "20",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "35",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "40",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "45",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "50",
+              "offset": -1
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_SeasonPass_Good_1_Current",
+    "mapping": {
+      "@type": "type.googleapis.com/SeasonPassAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "8",
+              "offset": 1
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "8"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "15"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "21"
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "23"
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "20"
+            }
+          }
+        }
+      ],
+      "season_pass_group": "SeasonPass"
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_Good_2_Current",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "10",
+              "offset": 1
+            }
+          }
+        },
+        {
+          "when": "age.BronzeAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "10"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "20"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "35"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "40"
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "45"
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "50"
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_SeasonPass_ResearchPoints_1",
+    "mapping": {
+      "@type": "type.googleapis.com/SeasonPassAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.research_points",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.research_points",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.research_points",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.research_points",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.research_points",
+              "amount": "1"
+            }
+          }
+        }
+      ],
+      "season_pass_group": "SeasonPass"
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_Food_1",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "80"
+            }
+          }
+        },
+        {
+          "when": "age.BronzeAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "300"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "500"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "800"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "1500"
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "2000"
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "3000"
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "4000"
+            }
+          }
+        },
+        {
+          "when": "age.FeudalAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "6000"
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "8500"
+            }
+          }
+        },
+        {
+          "when": "age.KingdomOfSicily",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "10000"
+            }
+          }
+        },
+        {
+          "when": "age.HighMiddleAges",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "15000"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyGothicEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "17500"
+            }
+          }
+        },
+        {
+          "when": "age.LateGothicEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "19500"
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_Coins_1",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "100"
+            }
+          }
+        },
+        {
+          "when": "age.BronzeAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "600"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "1000"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "2000"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "3000"
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "4000"
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "5500"
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "6500"
+            }
+          }
+        },
+        {
+          "when": "age.FeudalAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "8000"
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "10000"
+            }
+          }
+        },
+        {
+          "when": "age.KingdomOfSicily",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "15000"
+            }
+          }
+        },
+        {
+          "when": "age.HighMiddleAges",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "18000"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyGothicEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "21000"
+            }
+          }
+        },
+        {
+          "when": "age.LateGothicEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "23000"
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_SeasonPass_Good_2_Previous",
+    "mapping": {
+      "@type": "type.googleapis.com/SeasonPassAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "4"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "8",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "19",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "27",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "29",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "31",
+              "offset": -1
+            }
+          }
+        }
+      ],
+      "season_pass_group": "SeasonPass"
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_Good_2_Previous",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "300"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "20",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "35",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "40",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "45",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "50",
+              "offset": -1
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_SeasonPass_Coins_1",
+    "mapping": {
+      "@type": "type.googleapis.com/SeasonPassAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "1700"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "3450"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "5800"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "8350"
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "12500"
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "16000"
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "19000"
+            }
+          }
+        },
+        {
+          "when": "age.FeudalAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "22500"
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "26500"
+            }
+          }
+        },
+        {
+          "when": "age.KingdomOfSicily",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "29500"
+            }
+          }
+        }
+      ],
+      "season_pass_group": "SeasonPass"
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_SeasonPass_Good_1_Previous",
+    "mapping": {
+      "@type": "type.googleapis.com/SeasonPassAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "4"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "8",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "19",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "27",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "29",
+              "offset": -1
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "31",
+              "offset": -1
+            }
+          }
+        }
+      ],
+      "season_pass_group": "SeasonPass"
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_TechMaterial_T1_Previous1",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "300"
+            }
+          }
+        },
+        {
+          "when": "age.BronzeAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.lapis_lazuli",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.lapis_lazuli",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.jasper",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.hematite",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.emerald",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.amethyst",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.opal",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.FeudalAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.spessartine",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.agate",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.KingdomOfSicily",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.aquamarine",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.HighMiddleAges",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.lava_stone",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyGothicEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.garnet",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.LateGothicEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.aventurine",
+              "amount": "1"
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_SeasonPass_Good_2_Current",
+    "mapping": {
+      "@type": "type.googleapis.com/SeasonPassAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "8",
+              "offset": 1
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "8"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "15"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "21"
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "23"
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "20"
+            }
+          }
+        }
+      ],
+      "season_pass_group": "SeasonPass"
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_TechMaterial_T2_Previous2",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "250"
+            }
+          }
+        },
+        {
+          "when": "age.BronzeAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 1,
+              "amount": "15"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 2,
+              "amount": "30"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.petroglyph",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.minoan_frescoes",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.greek_lyre",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.etruscan_bronze_mirror",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.roman_cameo_ring",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.FeudalAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.byzantine_ewer",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.frankish_fibula",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.KingdomOfSicily",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.medieval_tapestry",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.HighMiddleAges",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.iberian_torc_necklace",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyGothicEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.arabesque_wood_carving",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.LateGothicEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.cloisonne_enamel",
+              "amount": "1"
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_TechMaterial_T2_Previous1",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.food",
+              "amount": "350"
+            }
+          }
+        },
+        {
+          "when": "age.BronzeAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.petroglyph",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.petroglyph",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.minoan_frescoes",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.greek_lyre",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.etruscan_bronze_mirror",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.roman_cameo_ring",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.byzantine_ewer",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.FeudalAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.frankish_fibula",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.medieval_tapestry",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.KingdomOfSicily",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.iberian_torc_necklace",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.HighMiddleAges",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.arabesque_wood_carving",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyGothicEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.cloisonne_enamel",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.LateGothicEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.rose_window",
+              "amount": "1"
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_SeasonPass_Good_3_Current",
+    "mapping": {
+      "@type": "type.googleapis.com/SeasonPassAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "8",
+              "offset": 1
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "8"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "15"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "21"
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "23"
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/GoodGiftDTO",
+              "number": 3,
+              "amount": "20"
+            }
+          }
+        }
+      ],
+      "season_pass_group": "SeasonPass"
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  },
+  {
+    "id": "negotiation_game_gifts.NegotiationGift_ATH_TechMaterial_T1_Previous2",
+    "mapping": {
+      "@type": "type.googleapis.com/TreasureHuntAgeDynamicChangeDTO",
+      "values": [
+        {
+          "when": "age.StoneAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.coins",
+              "amount": "200"
+            }
+          }
+        },
+        {
+          "when": "age.BronzeAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.amber",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.MinoanEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.amber",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.ClassicGreece",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.lapis_lazuli",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyRome",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.jasper",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.RomanEmpire",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.hematite",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.ByzantineEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.emerald",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.AgeOfTheFranks",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.amethyst",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.FeudalAge",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.opal",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.IberianEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.spessartine",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.KingdomOfSicily",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.agate",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.HighMiddleAges",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.aquamarine",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.EarlyGothicEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.lava_stone",
+              "amount": "1"
+            }
+          }
+        },
+        {
+          "when": "age.LateGothicEra",
+          "then": {
+            "@type": "type.googleapis.com/GiftDefinitionDTO",
+            "gift": {
+              "@type": "type.googleapis.com/ResourceGiftDTO",
+              "resource_id": "resource.garnet",
+              "amount": "1"
+            }
+          }
+        }
+      ]
+    },
+    "@type": "type.googleapis.com/NegotiationGameGiftsDefinitionDTO"
+  }
+]

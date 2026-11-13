@@ -28,8 +28,7 @@ Then, run the development server:
 bun run dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the web application.
-From `apps/native`, run the `ios` script for iOS or the `android` script for Android to build and launch the app. See [Expo development builds](https://docs.expo.dev/develop/development-builds/introduction/) for device setup.
+Open [http://localhost:3001](http://localhost:3001) in your browser to see the web application. From `apps/native`, run the `ios` script for iOS or the `android` script for Android to build and launch the app. See [Expo development builds](https://docs.expo.dev/develop/development-builds/introduction/) for device setup.
 
 ## UI Customization
 
@@ -71,6 +70,48 @@ Run standalone Node/Bun tools that use Varlock from the owning app directory so 
 
 - Initialize hooks: `bun run prepare`
 - Run checks: `bun run check`
+
+## CI/CD & Releases
+
+### CI
+
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every pull request and push to `main`: `bun run check` (Ultracite), `check-types`, `test` and `build`.
+
+Pull requests and pushes to `main` also package the extension as Chrome and Firefox zips and upload them as workflow artifacts (kept for 14 days). On pull requests from this repository, a single comment links the latest successful build and is updated on every push.
+
+### Releasing
+
+All apps share one version, the `version` in the root `package.json`.
+
+1. Bump `version` in the root `package.json` and commit.
+2. Tag that commit `vX.Y.Z` (it must match the version) and push the tag.
+
+[`.github/workflows/release.yml`](.github/workflows/release.yml) then runs CI, creates a GitHub Release with generated notes, and releases **only the apps affected since the previous `v*` tag**. It works these out with Turborepo's dependency graph (`turbo ls --filter="...[prev...tag]"`), so a change in a shared package releases every app that uses it. The first tag releases everything. To re-release every app, run the workflow manually from a tag ref with `force_all`.
+
+| App | Release |
+| --- | --- |
+| `apps/extension` | Chrome + Firefox zips attached to the GitHub Release (manifest version = tag version) |
+| `apps/web` | Prerendered static site deployed to a Cloudflare assets-only Worker (`apps/web/wrangler.jsonc`) |
+| `apps/fumadocs` | Static docs deployed to a Cloudflare assets-only Worker (`apps/fumadocs/wrangler.jsonc`) |
+| `apps/native` | EAS production builds for iOS + Android (`apps/native/eas.json`), queued without waiting |
+
+### Required secrets and variables
+
+Web, docs and the store submission run in the `production` GitHub environment, so you can add required reviewers there.
+
+| Name | Kind | Used by |
+| --- | --- | --- |
+| `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | secret | web, docs |
+| `EXPO_TOKEN` | secret | native |
+| `SUBMIT_EXTENSION_TO_STORES` | variable | set to `true` to enable store submission |
+| `CHROME_EXTENSION_ID`, `CHROME_CLIENT_ID`, `CHROME_CLIENT_SECRET`, `CHROME_REFRESH_TOKEN` | secret | Chrome Web Store submission (`wxt submit`) |
+| `FIREFOX_EXTENSION_ID`, `FIREFOX_JWT_ISSUER`, `FIREFOX_JWT_SECRET` | secret | Firefox Add-ons submission (`wxt submit`) |
+
+Before the first native release: run `eas init` in `apps/native` (sets the project ID), replace the `com.anonymous.*` identifiers in `app.json`, and set `EXPO_PUBLIC_SERVER_URL` as an EAS environment variable.
+
+### Code review
+
+[CodeRabbit](https://coderabbit.ai) reviews pull requests to `main` using [`.coderabbit.yaml`](.coderabbit.yaml). Install the CodeRabbit GitHub App on the repository to enable it.
 
 ## Project Structure
 

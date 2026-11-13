@@ -1,0 +1,23 @@
+{
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "bradlc.vscode-tailwindcss",
+    "bufbuild.vscode-buf",
+    "christian-kohler.npm-intellisense",
+    "coderabbit.coderabbit-vscode",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "github.vscode-github-actions",
+    "github.vscode-pull-request-github",
+    "mattpocock.ts-error-translator",
+    "mgmcdermott.vscode-language-babel",
+    "mikestead.dotenv",
+    "mkhl.direnv",
+    "npmx-dev.vscode-npmx",
+    "nrjdalal.shadcn-ui-next",
+    "oxc.oxc-vscode",
+    "sanjulaganepola.github-local-actions",
+    "varlock.env-spec-language",
+    "yoavbls.pretty-ts-errors"
+  ]
+}

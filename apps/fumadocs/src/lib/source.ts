@@ -5,7 +5,10 @@ import { llms, loader } from "fumadocs-core/source";
 import { docsRoute } from "./shared";
 
 export const source = loader({
-  source: toFumadocsSource(await getCollection("docs"), await getCollection("meta")),
+  source: toFumadocsSource(
+    await getCollection("docs"),
+    await getCollection("meta")
+  ),
   baseUrl: docsRoute,
 });
 

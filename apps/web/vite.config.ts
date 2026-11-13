@@ -5,16 +5,22 @@ import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  server: {
-    port: 3001,
-  },
-  resolve: {
-    tsconfigPaths: true,
-  },
   plugins: [
     varlockVitePlugin({ ssrInjectMode: "auto-load" }),
     tailwindcss(),
-    tanstackStart(),
+    // Fully static output (dist/client) served by a Cloudflare assets-only Worker.
+    tanstackStart({
+      prerender: {
+        crawlLinks: true,
+        enabled: true,
+      },
+    }),
     viteReact(),
   ],
+  resolve: {
+    tsconfigPaths: true,
+  },
+  server: {
+    port: 3001,
+  },
 });

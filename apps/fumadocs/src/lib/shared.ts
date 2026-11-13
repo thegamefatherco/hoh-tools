@@ -1,6 +1,6 @@
 import { createGetUrl } from "fumadocs-core/source";
 
-export const appName = "Astro";
+export const appName = "HoH Tools";
 export const docsRoute = "/docs";
 export const docsImageRoute = "/og/docs";
 

@@ -1,0 +1,12 @@
+// Assets-only Worker: serves the prerendered site from dist/client, no server code.
+// Deployed by .github/workflows/release.yml.
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "hoh-tools-web",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist/client",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+  },
+}
