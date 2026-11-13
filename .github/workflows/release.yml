@@ -34,6 +34,11 @@ jobs:
   ci:
     name: CI
     uses: ./.github/workflows/ci.yml
+    # ci.yml declares pull-requests: write for its PR comment, and a called workflow cannot
+    # exceed its caller. The comment step itself is skipped on tags.
+    permissions:
+      contents: read
+      pull-requests: write
 
   changes:
     name: Detect affected apps

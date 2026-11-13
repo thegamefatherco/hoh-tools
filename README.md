@@ -77,6 +77,8 @@ Run standalone Node/Bun tools that use Varlock from the owning app directory so 
 
 [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every pull request and push to `main`: `bun run check` (Ultracite), `check-types`, `test` and `build`.
 
+Pull requests and pushes to `main` also package the extension as Chrome and Firefox zips and upload them as workflow artifacts (kept for 14 days). On pull requests from this repository, a single comment links the latest successful build and is updated on every push.
+
 ### Releasing
 
 All apps share one version, the `version` in the root `package.json`.
