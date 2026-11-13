@@ -157,6 +157,7 @@ jobs:
           name: extension-zips
           path: apps/extension/.output/*.zip
           retention-days: 7
+          include-hidden-files: true
 
   extension-stores:
     name: Extension (store submission)

@@ -69,25 +69,28 @@ jobs:
           ls -la .output/*.zip
           echo "short_sha=$SHORT_SHA" >> "$GITHUB_OUTPUT"
 
+      # .output is a hidden directory; upload-artifact@v4 skips those unless this is set.
       - name: Upload Chrome extension
         id: upload-chrome
-        if: steps.package.outcome == 'success'
+        if: always() && steps.package.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
           name: extension-chrome
           path: apps/extension/.output/*-chrome.zip
           if-no-files-found: error
           retention-days: 14
+          include-hidden-files: true
 
       - name: Upload Firefox extension
         id: upload-firefox
-        if: steps.package.outcome == 'success'
+        if: always() && steps.package.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
           name: extension-firefox
           path: apps/extension/.output/*-firefox.zip
           if-no-files-found: error
           retention-days: 14
+          include-hidden-files: true
 
       # Fork PRs get a read-only token, so they keep the artifacts on the run without a comment.
       - name: Comment extension builds on the PR
